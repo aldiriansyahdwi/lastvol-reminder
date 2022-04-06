@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/drawable/bg_item.xml" value="0.12" />
+        <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/drawable/ic_add.xml" value="0.163" />
+        <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/drawable/ic_delete.xml" value="0.163" />
+        <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/drawable/ic_edit.xml" value="0.163" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/drawable/txt_bg.xml" value="0.1" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/activity_regis.xml" value="0.264" />
+        <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/book_item.xml" value="0.264" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/fragment_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Tugas/UPNVJ/Semester 6/Prak Mobile Programming/9/LastVolReminder/app/src/main/res/layout/fragment_login.xml" value="0.15862068965517243" />

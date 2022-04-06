@@ -2,4 +2,8 @@
 <resources>
     <dimen name="margin_width">24dp</dimen>
     <dimen name="large_height_margin">72dp</dimen>
+    <dimen name="margin_height">12dp</dimen>
+    <dimen name="margin_inside">8dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="desc_size">16sp</dimen>
 </resources>

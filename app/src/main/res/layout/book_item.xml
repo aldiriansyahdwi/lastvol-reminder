@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="@dimen/margin_width"
+    android:layout_marginEnd="@dimen/margin_width"
+    android:layout_marginTop="@dimen/margin_height"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item"
+    android:paddingBottom="@dimen/margin_inside">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_inside"
+        android:layout_marginStart="@dimen/margin_inside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/black"
+        android:text="Ini title"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_description"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin_inside"
+        android:layout_marginStart="@dimen/margin_inside"
+        android:textSize="@dimen/desc_size"
+        app:layout_constraintWidth_percent="0.8"
+        android:textColor="@color/black_desc"
+        android:text="Description"/>
+
+    <ImageView
+        android:id="@+id/btn_edit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/margin_inside"
+        android:layout_marginEnd="@dimen/margin_inside"
+        android:foregroundGravity="center"/>
+
+    <ImageView
+        android:id="@+id/btn_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_edit"
+        android:layout_marginTop="@dimen/margin_inside"
+        android:layout_marginEnd="@dimen/margin_inside"
+        android:src="@drawable/ic_delete"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
