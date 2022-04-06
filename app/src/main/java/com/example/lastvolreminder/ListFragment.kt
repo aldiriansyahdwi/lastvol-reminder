@@ -1,19 +1,44 @@
 package com.example.lastvolreminder
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.lastvolreminder.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
+
+    private var _binding : FragmentListBinding? = null
+    private val binding get() = _binding!!
+    private val sharedPrefFile = "login_account"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        _binding = FragmentListBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+
+        binding.tvBtnLogout.setOnClickListener {
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+            Toast.makeText(requireContext(), "logout account", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_listFragment_to_loginFragment)
+        }
     }
 
 }

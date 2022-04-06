@@ -1,4 +1,4 @@
-package com.example.lastvolreminder
+package com.example.lastvolreminder.userdatabase
 
 import android.content.Context
 import androidx.room.Database
