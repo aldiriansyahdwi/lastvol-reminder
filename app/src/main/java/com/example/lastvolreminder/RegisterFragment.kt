@@ -71,7 +71,7 @@ class RegisterFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        UserDatabase.destroyInstance()
     }
 //    fun usernameOnConflict(username: String): Boolean{
 //        val check = userDb?.userDao()?.getAllUser()

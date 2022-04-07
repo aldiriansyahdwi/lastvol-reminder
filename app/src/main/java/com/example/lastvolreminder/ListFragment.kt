@@ -39,6 +39,11 @@ class ListFragment : Fragment() {
             Toast.makeText(requireContext(), "logout account", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_listFragment_to_loginFragment)
         }
+
+        binding.fabAdd.setOnClickListener {
+            val dialogFragment = AddFragment()
+            dialogFragment.show(requireActivity().supportFragmentManager, null)
+        }
     }
 
 }

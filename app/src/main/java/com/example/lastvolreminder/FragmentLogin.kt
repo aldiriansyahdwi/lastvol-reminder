@@ -77,6 +77,11 @@ class FragmentLogin : Fragment() {
 
         
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        UserDatabase.destroyInstance()
+    }
 //    fun loginVerification(email: String, password: String): List<User>? {
 //        return userDb?.userDao()?.checkLogin(email, password)
 //    }

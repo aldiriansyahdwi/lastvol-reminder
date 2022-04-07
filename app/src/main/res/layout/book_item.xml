@@ -56,4 +56,13 @@
         android:layout_marginEnd="@dimen/margin_inside"
         android:src="@drawable/ic_delete"/>
 
+    <ImageView
+        android:id="@+id/iv_complete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        android:src="@drawable/ic_complete"
+        android:visibility="invisible"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
