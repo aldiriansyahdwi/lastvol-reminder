@@ -42,15 +42,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="@dimen/margin_width"
-        android:layout_marginBottom="@dimen/margin_width"
-        android:foregroundGravity="center"
+        android:layout_margin="@dimen/margin_width"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/light_blue_main"
+        android:backgroundTint="@color/light_blue_secondary"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

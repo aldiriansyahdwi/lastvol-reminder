@@ -44,10 +44,15 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginEnd="@dimen/margin_inside"
-        android:foregroundGravity="center"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:scaleType="fitCenter"
         android:clickable="true"
         android:focusable="true"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:background="@drawable/bg_item"
+        android:backgroundTint="@color/light_blue_main"/>
 
     <ImageView
         android:id="@+id/btn_delete"
@@ -58,9 +63,14 @@
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginEnd="@dimen/margin_inside"
         android:src="@drawable/ic_delete"
+        android:paddingBottom="2dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="2dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:background="@drawable/bg_item"
+        android:backgroundTint="@color/light_blue_main"/>
 
     <ImageView
         android:id="@+id/iv_complete"
