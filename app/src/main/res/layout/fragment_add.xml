@@ -6,13 +6,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".EditFragment">
 
+    <TextView
+        android:id="@+id/frag_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Book"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/black_desc"
+        android:layout_marginTop="@dimen/margin_inside"/>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_input_book_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frag_name"
         android:layout_marginStart="@dimen/margin_width"
         android:layout_marginEnd="@dimen/margin_width"
         android:hint="@string/input_book_title"

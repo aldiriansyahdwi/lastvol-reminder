@@ -1,12 +1,15 @@
 package com.example.lastvolreminder
 
-import android.renderscript.ScriptGroup
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lastvolreminder.bookdatabase.Book
 import com.example.lastvolreminder.databinding.BookItemBinding
+import com.example.lastvolreminder.databinding.FragmentEditBinding
 
 class BookAdapter(val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
@@ -24,7 +27,14 @@ class BookAdapter(val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.Vi
             with(listBook[position]){
                 binding.tvTitle.text = title
                 binding.tvDescription.text = lastNumber.toString()
+                binding.ivComplete.isVisible = status
+                binding.btnEdit.setOnClickListener {
+                    val activity = it.context as MainActivity
+                    val dialogFragment = EditFragment(listBook[position])
+                    dialogFragment.show(activity.supportFragmentManager, null)
+                }
             }
+
         }
     }
 

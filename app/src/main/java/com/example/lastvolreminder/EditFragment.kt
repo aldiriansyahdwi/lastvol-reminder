@@ -19,13 +19,17 @@ import com.example.lastvolreminder.userdatabase.UserDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class EditFragment : DialogFragment() {
+class EditFragment() : DialogFragment() {
 
     private var _binding : FragmentEditBinding? = null
     private val binding get() = _binding!!
-
+    lateinit var book: Book
     val sharedPrefFile = "login_account"
     var bookDb: BookDatabase? = null
+
+    constructor(book : Book) : this(){
+        this.book = book
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,16 +50,17 @@ class EditFragment : DialogFragment() {
         val sharedPreferences: SharedPreferences =
             this.requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         bookDb = BookDatabase.getInstance(this.requireContext())
+        binding.layoutInputBookTitle.text = book.title
+        binding.etInputVolume.setText(book.lastNumber.toString())
+        binding.cbComplete.isChecked = book.status
         binding.btnEdit.setOnClickListener {
             when {
-                binding.etInputTitle.text.isNullOrEmpty() -> binding.etInputTitle.error =
-                    "Input your book title"
                 binding.etInputVolume.text.isNullOrEmpty() -> binding.etInputVolume.error =
                     "input at least 0 volume"
                 else -> {
                     val objectBook = sharedPreferences.getString("username", "-")?.let { it1 ->
                         Book(
-                            binding.etInputTitle.text.toString(),
+                            book.title,
                             it1,
                             binding.etInputVolume.text.toString().toInt(),
                             binding.cbComplete.isChecked

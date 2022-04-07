@@ -7,16 +7,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.lastvolreminder.bookdatabase.BookDatabase
 import com.example.lastvolreminder.databinding.FragmentListBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ListFragment : Fragment() {
 
     private var _binding : FragmentListBinding? = null
     private val binding get() = _binding!!
     private val sharedPrefFile = "login_account"
-
+    private var bookDb: BookDatabase? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,10 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        binding.recyclerItem.layoutManager = LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
+        bookDb = BookDatabase.getInstance(this.requireContext())
+        fetchData()
+
 
         binding.tvBtnLogout.setOnClickListener {
             val editor = sharedPreferences.edit()
@@ -43,6 +52,26 @@ class ListFragment : Fragment() {
         binding.fabAdd.setOnClickListener {
             val dialogFragment = AddFragment()
             dialogFragment.show(requireActivity().supportFragmentManager, null)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
+    }
+
+    fun fetchData(){
+        val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        GlobalScope.launch {
+            val listBook = sharedPreferences.getString("username", "-")
+                ?.let { bookDb?.bookDao()?.getUserBook(it) }
+
+            activity?.runOnUiThread {
+                listBook?.let{
+                    val adapter = BookAdapter(it)
+                    binding.recyclerItem.adapter = adapter
+                }
+            }
         }
     }
 

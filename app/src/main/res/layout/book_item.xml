@@ -17,23 +17,23 @@
         android:layout_marginStart="@dimen/margin_inside"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintWidth_percent="0.65"
         android:textSize="@dimen/title_size"
         android:textColor="@color/black"
         android:text="Ini title"/>
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/tv_description"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_edit"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginStart="@dimen/margin_inside"
-        android:textSize="@dimen/desc_size"
-        app:layout_constraintWidth_percent="0.8"
+        android:textSize="40sp"
         android:textColor="@color/black_desc"
-        android:text="Description"/>
+        android:gravity="center"
+        android:text="00"/>
 
     <ImageView
         android:id="@+id/btn_edit"
@@ -44,7 +44,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginEnd="@dimen/margin_inside"
-        android:foregroundGravity="center"/>
+        android:foregroundGravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"/>
 
     <ImageView
         android:id="@+id/btn_delete"
@@ -54,14 +57,18 @@
         app:layout_constraintTop_toBottomOf="@id/btn_edit"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginEnd="@dimen/margin_inside"
-        android:src="@drawable/ic_delete"/>
+        android:src="@drawable/ic_delete"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"/>
 
     <ImageView
         android:id="@+id/iv_complete"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintStart_toEndOf="@id/tv_title"
-        app:layout_constraintTop_toTopOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="@id/tv_description"
+        app:layout_constraintBottom_toBottomOf="@id/tv_description"
+        app:layout_constraintEnd_toStartOf="@id/tv_description"
         android:src="@drawable/ic_complete"
         android:visibility="invisible"
         />
