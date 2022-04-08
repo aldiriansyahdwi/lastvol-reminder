@@ -1,21 +1,16 @@
 package com.example.lastvolreminder
 
-import android.app.Dialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.example.lastvolreminder.bookdatabase.Book
 import com.example.lastvolreminder.bookdatabase.BookDatabase
 import com.example.lastvolreminder.databinding.FragmentEditBinding
-import com.example.lastvolreminder.userdatabase.User
-import com.example.lastvolreminder.userdatabase.UserDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -24,8 +19,8 @@ class EditFragment() : DialogFragment() {
     private var _binding : FragmentEditBinding? = null
     private val binding get() = _binding!!
     lateinit var book: Book
-    val sharedPrefFile = "login_account"
-    var bookDb: BookDatabase? = null
+    private val sharedPrefFile = "login_account"
+    private var bookDb: BookDatabase? = null
 
     constructor(book : Book) : this(){
         this.book = book
@@ -35,7 +30,7 @@ class EditFragment() : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentEditBinding.inflate(inflater, container, false)
         return binding.root
     }

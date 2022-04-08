@@ -3,20 +3,17 @@ package com.example.lastvolreminder
 
 import android.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lastvolreminder.bookdatabase.Book
 import com.example.lastvolreminder.bookdatabase.BookDatabase
 import com.example.lastvolreminder.databinding.BookItemBinding
-import com.example.lastvolreminder.databinding.FragmentEditBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class BookAdapter(val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.ViewHolder>() {
+class BookAdapter(private val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: BookItemBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -40,7 +37,7 @@ class BookAdapter(val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.Vi
                 }
 
                 binding.btnDelete.setOnClickListener {
-                    AlertDialog.Builder(it.context).setPositiveButton("Yes"){ p0, p1 ->
+                    AlertDialog.Builder(it.context).setPositiveButton("Yes"){ _, _ ->
                         val bookDb = BookDatabase.getInstance(holder.itemView.context)
 
                         GlobalScope.async{
@@ -55,7 +52,7 @@ class BookAdapter(val listBook: List<Book>): RecyclerView.Adapter<BookAdapter.Vi
                             (holder.itemView.context as ListFragment).fetchData()
                         }
                     }.setNegativeButton("Cancel"){
-                        p0, p1 ->
+                            p0, _ ->
                         p0.dismiss()
                     }.setMessage("Are you sure to delete \"${listBook[position].title}\" ?").setTitle("Delete Confirmation").create().show()
                 }

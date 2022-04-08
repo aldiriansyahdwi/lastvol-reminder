@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="@dimen/margin_width"
     android:layout_marginEnd="@dimen/margin_width"
     android:layout_marginTop="@dimen/margin_height"
@@ -20,7 +19,7 @@
         app:layout_constraintWidth_percent="0.65"
         android:textSize="@dimen/title_size"
         android:textColor="@color/black"
-        android:text="Ini title"/>
+        android:text="@string/title_place_holder"/>
 
     <TextView
         android:layout_width="50dp"
@@ -33,13 +32,14 @@
         android:textSize="40sp"
         android:textColor="@color/black_desc"
         android:gravity="center"
-        android:text="00"/>
+        android:text="@string/desc_place_holder"/>
 
     <ImageView
+        android:contentDescription="@string/edit"
         android:id="@+id/btn_edit"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_edit"
+        android:src="@drawable/ic_edit_new"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/margin_inside"
@@ -55,6 +55,7 @@
         android:backgroundTint="@color/light_blue_main"/>
 
     <ImageView
+        android:contentDescription="@string/delete"
         android:id="@+id/btn_delete"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -62,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_edit"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginEnd="@dimen/margin_inside"
-        android:src="@drawable/ic_delete"
+        android:src="@drawable/ic_delete_new"
         android:paddingBottom="2dp"
         android:paddingStart="2dp"
         android:paddingEnd="2dp"
@@ -73,6 +74,7 @@
         android:backgroundTint="@color/light_blue_main"/>
 
     <ImageView
+        android:contentDescription="@string/complete"
         android:id="@+id/iv_complete"
         android:layout_width="30dp"
         android:layout_height="30dp"

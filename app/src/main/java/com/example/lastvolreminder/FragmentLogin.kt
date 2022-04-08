@@ -16,11 +16,8 @@ import kotlinx.coroutines.async
 
 class FragmentLogin : Fragment() {
 
-    companion object {
-        const val EXTRA_EMAIL = "EXTRA_EMAIL"
-    }
-    val sharedPrefFile = "login_account"
-    var userDb: UserDatabase? = null
+    private val sharedPrefFile = "login_account"
+    private var userDb: UserDatabase? = null
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -28,7 +25,7 @@ class FragmentLogin : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding =  FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -55,20 +52,20 @@ class FragmentLogin : Fragment() {
             val password = binding.etInputPassword.text.toString()
 
             GlobalScope.async {
-                val verif = userDb?.userDao()?.checkLogin(email, password)
+                val verification = userDb?.userDao()?.checkLogin(email, password)
 
 
                 activity?.runOnUiThread {
-                    if(verif.isNullOrEmpty()){
+                    if(verification.isNullOrEmpty()){
                         Toast.makeText(it.context, "account not found", Toast.LENGTH_SHORT).show()
                     }
                     else{
                         val editor: SharedPreferences.Editor = sharedPreferences.edit()
                         editor.putString("email", email)
                         editor.putString("password", password)
-                        editor.putString("username", verif[0].username)
+                        editor.putString("username", verification[0].username)
                         editor.apply()
-                        Toast.makeText(it.context, "hello ${verif[0].username}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(it.context, "hello ${verification[0].username}", Toast.LENGTH_SHORT).show()
                         findNavController().navigate(R.id.action_loginFragment_to_listFragment)
                     }
                 }

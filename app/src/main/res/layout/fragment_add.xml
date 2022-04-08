@@ -10,7 +10,7 @@
         android:id="@+id/frag_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Book"
+        android:text="@string/add_book"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/layout_input_book_title"
         android:layout_marginStart="@dimen/margin_width"
         android:layout_marginEnd="@dimen/margin_width"
-        android:hint="Input last volume"
+        android:hint="@string/input_last_volume"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -66,7 +66,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/margin_inside"
         android:layout_marginStart="@dimen/margin_width"
-        android:text="Complete"/>
+        android:text="@string/complete"/>
 
     <Button
         android:id="@+id/btn_add"

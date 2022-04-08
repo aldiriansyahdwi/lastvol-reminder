@@ -3,7 +3,6 @@ package com.example.lastvolreminder
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,13 +19,13 @@ class AddFragment : DialogFragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
 
-    var sharedPreFile = "login_account"
-    var bookDb: BookDatabase? = null
+    private var sharedPreFile = "login_account"
+    private var bookDb: BookDatabase? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -65,7 +64,6 @@ class AddFragment : DialogFragment() {
                             else{
                                 Toast.makeText(requireContext(), "add failed", Toast.LENGTH_SHORT).show()
                             }
-
                         }
                     }
                 }

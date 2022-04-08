@@ -16,7 +16,7 @@ import kotlinx.coroutines.async
 
 class RegisterFragment : Fragment() {
 
-    var userDb: UserDatabase? = null
+    private var userDb: UserDatabase? = null
     private var _binding : FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
@@ -24,7 +24,7 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
@@ -42,10 +42,10 @@ class RegisterFragment : Fragment() {
             val confirmPassword: String = binding.etConfirmPassword.text.toString()
 
             when {
-                username.isNullOrEmpty() -> binding.etInputUsername.error = "you need to enter an username"
+                username.isEmpty() -> binding.etInputUsername.error = "you need to enter an username"
 //                usernameOnConflict(username) -> binding.etInputUsername.error = "username already used"
-                email.isNullOrEmpty() -> binding.etInputEmail.error = "You need to enter an email"
-                password.isNullOrEmpty() -> binding.etInputPassword.error = "You need to enter a password"
+                email.isEmpty() -> binding.etInputEmail.error = "You need to enter an email"
+                password.isEmpty() -> binding.etInputPassword.error = "You need to enter a password"
                 confirmPassword != password -> binding.etConfirmPassword.error = "your password does not match"
                 else ->{
                     val objectUser = User(
