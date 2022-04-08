@@ -31,14 +31,20 @@
         android:layout_marginTop="@dimen/margin_width"
         android:layout_marginStart="@dimen/margin_width"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_action"
         app:layout_constraintTop_toBottomOf="@id/tv_username"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:contentDescription="@string/floating_action_button"

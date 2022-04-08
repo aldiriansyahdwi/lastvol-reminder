@@ -52,6 +52,11 @@ class ListFragment : Fragment() {
             val dialogFragment = AddFragment()
             dialogFragment.show(requireActivity().supportFragmentManager, null)
         }
+
+        binding.swipeAction.setOnRefreshListener {
+            fetchData()
+            binding.swipeAction.isRefreshing = false
+        }
     }
 
     override fun onResume() {
@@ -78,4 +83,6 @@ class ListFragment : Fragment() {
         super.onDestroy()
         BookDatabase.destroyInstance()
     }
+
+
 }
