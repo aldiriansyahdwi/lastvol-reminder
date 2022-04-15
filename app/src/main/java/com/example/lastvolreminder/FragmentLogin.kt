@@ -16,6 +16,7 @@ import kotlinx.coroutines.async
 
 class FragmentLogin : Fragment() {
 
+    val test = "test change"
     private val sharedPrefFile = "login_account"
     private var userDb: UserDatabase? = null
 
