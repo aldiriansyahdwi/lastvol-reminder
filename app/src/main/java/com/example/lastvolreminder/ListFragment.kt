@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lastvolreminder.bookdatabase.BookDatabase
 import com.example.lastvolreminder.databinding.FragmentListBinding
+import com.example.lastvolreminder.repository.MainViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -39,6 +41,7 @@ class ListFragment : Fragment() {
         bookDb = BookDatabase.getInstance(this.requireContext())
         fetchData()
 
+        binding.tvUsername.text = sharedPreferences.getString("username", "-")
 
         binding.tvBtnLogout.setOnClickListener {
             val editor = sharedPreferences.edit()
@@ -65,18 +68,33 @@ class ListFragment : Fragment() {
     }
 
     fun fetchData(){
-        val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         GlobalScope.launch {
-            val listBook = sharedPreferences.getString("username", "-")
-                ?.let { bookDb?.bookDao()?.getUserBook(it) }
-
+            val model: MainViewModel by viewModels()
+            val test = model.localposts
             activity?.runOnUiThread {
-                listBook?.let{
+                test?.let {
                     val adapter = BookAdapter(it)
                     binding.recyclerItem.adapter = adapter
                 }
             }
         }
+
+
+//
+
+
+//        val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+//        GlobalScope.launch {
+//            val listBook = sharedPreferences.getString("username", "-")
+//                ?.let { bookDb?.bookDao()?.getUserBook(it) }
+//
+//            activity?.runOnUiThread {
+//                listBook?.let{
+//                    val adapter = BookAdapter(it)
+//                    binding.recyclerItem.adapter = adapter
+//                }
+//            }
+//        }
     }
 
     override fun onDestroy() {

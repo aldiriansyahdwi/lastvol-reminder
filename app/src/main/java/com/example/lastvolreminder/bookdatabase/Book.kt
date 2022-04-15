@@ -15,3 +15,14 @@ class Book(
     @ColumnInfo(name = "lastNumber") var lastNumber : Int,
     @ColumnInfo(name = "status") var status: Boolean
 ): Parcelable
+
+fun List<Book>.asDomainModel(): List<Book> {
+    return map {
+        Book(
+            title = it.title,
+            user = it.user,
+            lastNumber = it.lastNumber,
+            status = it.status
+        )
+    }
+}
